@@ -24,6 +24,12 @@ const config: Config = {
           border: '#D2D2D7',
           'border-subtle': '#E8E8ED',
         },
+        accent: {
+          purple: '#7B61FF',
+          cyan: '#00C2FF',
+          pink: '#FC466B',
+          violet: '#9B5DE5',
+        },
         status: {
           green: '#34C759',
           'green-bg': '#F0FFF4',

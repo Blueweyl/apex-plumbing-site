@@ -115,4 +115,58 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* Headline gradient — blue → purple */
+  .gradient-text-brand {
+    background: linear-gradient(135deg, #0071E3 0%, #7B61FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Warm gradient text — blue → cyan */
+  .gradient-text-vivid {
+    background: linear-gradient(90deg, #0071E3 0%, #00C2FF 50%, #7B61FF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Hero mesh gradient — light mode */
+  .mesh-light {
+    background-image:
+      radial-gradient(at 0% 0%,   hsla(211,100%,44%,0.18) 0px, transparent 55%),
+      radial-gradient(at 100% 0%,  hsla(262,100%,65%,0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%,hsla(190,100%,50%,0.10) 0px, transparent 50%),
+      radial-gradient(at 0% 100%,  hsla(280,100%,65%,0.06) 0px, transparent 50%);
+  }
+
+  /* Hero mesh gradient — dark mode */
+  .mesh-dark {
+    background-image:
+      radial-gradient(at 0% 0%,   hsla(211,80%,60%,0.22) 0px, transparent 55%),
+      radial-gradient(at 100% 0%,  hsla(262,80%,65%,0.16) 0px, transparent 50%),
+      radial-gradient(at 100% 100%,hsla(190,80%,55%,0.12) 0px, transparent 50%),
+      radial-gradient(at 0% 100%,  hsla(280,80%,65%,0.10) 0px, transparent 50%);
+  }
+
+  /* Section mesh — subtle, for non-hero sections */
+  .mesh-subtle {
+    background-image:
+      radial-gradient(at 20% 80%,  hsla(211,100%,44%,0.07) 0px, transparent 50%),
+      radial-gradient(at 80% 20%,  hsla(262,100%,65%,0.05) 0px, transparent 50%);
+  }
+
+  /* Gradient border card */
+  .gradient-card-border {
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #0071E3, #7B61FF) border-box;
+    border: 1.5px solid transparent;
+  }
+  .dark .gradient-card-border {
+    background: linear-gradient(#27272a, #27272a) padding-box,
+                linear-gradient(135deg, #0071E3, #7B61FF) border-box;
+  }
 }

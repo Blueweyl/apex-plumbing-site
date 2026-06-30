@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react'
 import { trackEvent } from '@/lib/analytics'
 
 const testimonials = [
-  { name: 'Sarah M.', location: 'Tacoma, WA', service: 'Burst pipe repair', rating: 5, text: 'Pipe burst under my kitchen sink at 11pm on a Sunday. Called GrowBridge and had a tech at my door by 12:30am. He fixed it in 45 minutes, cleaned up every drop of water, and charged exactly what he quoted. I was floored.', initials: 'SM', avatarBg: 'bg-apple-blue', tagBg: 'bg-apple-blue-light dark:bg-apple-blue/20 text-apple-blue' },
-  { name: 'David R.', location: 'Puyallup, WA', service: 'Water heater replacement', rating: 5, text: 'Woke up to no hot water on a Monday morning. GrowBridge had a tech out by 10am. He showed me the issue, explained the two options, gave me the exact prices, and had my new heater installed and running by noon. Outstanding.', initials: 'DR', avatarBg: 'bg-status-green', tagBg: 'bg-status-green-bg dark:bg-green-950/50 text-status-green' },
-  { name: 'Jennifer K.', location: 'Bellevue, WA', service: 'Drain cleaning', rating: 5, text: "Three different plumbers told me I might need to tear up my floor to fix the drain. GrowBridge used a camera and found the actual blockage in 10 minutes, cleared it in 20, and didn't touch my floor. $180 instead of $3,000.", initials: 'JK', avatarBg: 'bg-status-amber', tagBg: 'bg-status-amber-bg dark:bg-amber-950/50 text-status-amber' },
-  { name: 'Tom H.', location: 'Seattle, WA', service: 'Toilet & faucet repair', rating: 5, text: 'Had a rocking toilet and a dripping bathroom faucet. Called in the morning, tech was there by 1pm. Fixed both in under 2 hours, left the bathroom spotless. Honest guys — he actually talked me out of an unnecessary part.', initials: 'TH', avatarBg: 'bg-apple-blue', tagBg: 'bg-apple-blue-light dark:bg-apple-blue/20 text-apple-blue' },
-  { name: 'Angela P.', location: 'Renton, WA', service: 'Sewer line repair', rating: 5, text: 'Sewer line issue that 2 companies wanted $8,000 to fix. GrowBridge did a camera inspection, diagnosed the actual problem, and repaired it trenchlessly for $2,400. They saved my yard and saved me $5,600.', initials: 'AP', avatarBg: 'bg-status-green', tagBg: 'bg-status-green-bg dark:bg-green-950/50 text-status-green' },
-  { name: 'Marcus W.', location: 'Kirkland, WA', service: 'Gas line installation', rating: 5, text: 'Needed a gas line run for a new range. GrowBridge pulled the permit, scheduled the utility inspection, and did the whole job in one day. Clean work, all up to code. The inspector actually complimented the installation.', initials: 'MW', avatarBg: 'bg-status-amber', tagBg: 'bg-status-amber-bg dark:bg-amber-950/50 text-status-amber' },
+  { name: 'Sarah M.', location: 'Tacoma, WA', service: 'Burst pipe repair', rating: 5, text: 'Pipe burst under my kitchen sink at 11pm on a Sunday. Called GrowBridge and had a tech at my door by 12:30am. He fixed it in 45 minutes, cleaned up every drop of water, and charged exactly what he quoted. I was floored.', initials: 'SM', avatarGrad: 'from-apple-blue to-accent-purple', tagBg: 'bg-apple-blue-light dark:bg-apple-blue/20 text-apple-blue', topBar: 'from-apple-blue to-accent-purple' },
+  { name: 'David R.', location: 'Puyallup, WA', service: 'Water heater replacement', rating: 5, text: 'Woke up to no hot water on a Monday morning. GrowBridge had a tech out by 10am. He showed me the issue, explained the two options, gave me the exact prices, and had my new heater installed and running by noon. Outstanding.', initials: 'DR', avatarGrad: 'from-status-green to-teal-400', tagBg: 'bg-status-green-bg dark:bg-green-950/50 text-status-green', topBar: 'from-status-green to-teal-400' },
+  { name: 'Jennifer K.', location: 'Bellevue, WA', service: 'Drain cleaning', rating: 5, text: "Three different plumbers told me I might need to tear up my floor to fix the drain. GrowBridge used a camera and found the actual blockage in 10 minutes, cleared it in 20, and didn't touch my floor. $180 instead of $3,000.", initials: 'JK', avatarGrad: 'from-status-amber to-orange-400', tagBg: 'bg-status-amber-bg dark:bg-amber-950/50 text-status-amber', topBar: 'from-status-amber to-orange-400' },
+  { name: 'Tom H.', location: 'Seattle, WA', service: 'Toilet & faucet repair', rating: 5, text: 'Had a rocking toilet and a dripping bathroom faucet. Called in the morning, tech was there by 1pm. Fixed both in under 2 hours, left the bathroom spotless. Honest guys — he actually talked me out of an unnecessary part.', initials: 'TH', avatarGrad: 'from-accent-cyan to-apple-blue', tagBg: 'bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400', topBar: 'from-accent-cyan to-apple-blue' },
+  { name: 'Angela P.', location: 'Renton, WA', service: 'Sewer line repair', rating: 5, text: 'Sewer line issue that 2 companies wanted $8,000 to fix. GrowBridge did a camera inspection, diagnosed the actual problem, and repaired it trenchlessly for $2,400. They saved my yard and saved me $5,600.', initials: 'AP', avatarGrad: 'from-violet-500 to-accent-purple', tagBg: 'bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400', topBar: 'from-violet-500 to-accent-purple' },
+  { name: 'Marcus W.', location: 'Kirkland, WA', service: 'Gas line installation', rating: 5, text: 'Needed a gas line run for a new range. GrowBridge pulled the permit, scheduled the utility inspection, and did the whole job in one day. Clean work, all up to code. The inspector actually complimented the installation.', initials: 'MW', avatarGrad: 'from-accent-pink to-pink-400', tagBg: 'bg-pink-50 dark:bg-pink-950/50 text-pink-600 dark:text-pink-400', topBar: 'from-accent-pink to-pink-400' },
 ]
 
 function Stars({ count }: { count: number }) {
@@ -91,8 +91,10 @@ export default function Testimonials() {
               className="group relative bg-white dark:bg-zinc-800 rounded-2xl p-6 shadow-card dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)] border border-apple-border-subtle dark:border-zinc-700 flex flex-col
                          hover:shadow-lift hover:-translate-y-2 hover:border-transparent dark:hover:border-zinc-600 transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute top-3 right-4 text-[80px] font-black text-apple-dark/[0.04] dark:text-white/[0.06] leading-none select-none pointer-events-none group-hover:text-apple-blue/8 transition-colors duration-500">"</div>
-              <div className={`absolute top-0 left-6 right-6 h-0.5 ${t.avatarBg} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              {/* Gradient top bar on hover */}
+              <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${t.topBar} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              {/* Ghost quote */}
+              <div className="absolute top-3 right-4 text-[80px] font-black text-apple-dark/[0.04] dark:text-white/[0.06] leading-none select-none pointer-events-none">"</div>
 
               <Stars count={t.rating} />
               <p className="text-[15px] text-apple-dark dark:text-zinc-100 leading-relaxed my-4 flex-1 relative z-10">"{t.text}"</p>
@@ -100,7 +102,7 @@ export default function Testimonials() {
                 {t.service}
               </span>
               <div className="flex items-center gap-3 pt-4 border-t border-apple-border-subtle dark:border-zinc-700">
-                <div className={`w-10 h-10 rounded-full ${t.avatarBg} flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.avatarGrad} flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
                   {t.initials}
                 </div>
                 <div>

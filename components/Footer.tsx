@@ -14,9 +14,13 @@ const areas = [
 export default function Footer() {
   return (
     <footer className="bg-apple-dark text-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-apple-blue/5 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3 animate-float-slow" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/4 rounded-full blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3 animate-float-reverse" />
+      {/* Rich mesh gradient background */}
+      <div className="absolute inset-0 pointer-events-none"
+           style={{ backgroundImage: 'radial-gradient(at 0% 0%, hsla(211,80%,60%,0.12) 0px, transparent 50%), radial-gradient(at 100% 0%, hsla(262,80%,65%,0.10) 0px, transparent 45%), radial-gradient(at 100% 100%, hsla(190,80%,55%,0.08) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(340,80%,60%,0.06) 0px, transparent 50%)' }} />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none animate-float-slow"
+           style={{ background: 'radial-gradient(circle, rgba(123,97,255,0.12) 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none animate-float-reverse"
+           style={{ background: 'radial-gradient(circle, rgba(0,194,255,0.08) 0%, transparent 70%)' }} />
       <div className="absolute inset-0 dot-grid opacity-[0.04] pointer-events-none" />
 
       {/* Top CTA strip */}
