@@ -25,4 +25,94 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+  .delay-2000 { animation-delay: 2000ms; }
+  .delay-3000 { animation-delay: 3000ms; }
+
+  /* Dot-grid background pattern */
+  .dot-grid {
+    background-image: radial-gradient(#0071E3 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  /* Shimmer text effect */
+  .shimmer-text {
+    background: linear-gradient(90deg, #0071E3 0%, #60b3ff 50%, #0071E3 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Gradient border on hover */
+  .hover-gradient-border {
+    position: relative;
+  }
+  .hover-gradient-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #0071E3, #60b3ff);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .hover-gradient-border:hover::after {
+    opacity: 1;
+  }
+
+  /* Sliding underline for links */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.25s ease;
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Card tilt on hover (via JS-free CSS) */
+  .card-interactive {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-interactive:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* Number gradient */
+  .number-gradient {
+    background: linear-gradient(135deg, #0071E3, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

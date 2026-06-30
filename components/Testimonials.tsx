@@ -11,7 +11,9 @@ const testimonials = [
     rating: 5,
     text: 'Pipe burst under my kitchen sink at 11pm on a Sunday. Called GrowBridge and had a tech at my door by 12:30am. He fixed it in 45 minutes, cleaned up every drop of water, and charged exactly what he quoted. I was floored.',
     initials: 'SM',
-    color: 'bg-apple-blue',
+    avatarBg: 'bg-apple-blue',
+    accentColor: 'text-apple-blue',
+    tagBg: 'bg-apple-blue-light text-apple-blue',
   },
   {
     name: 'David R.',
@@ -20,16 +22,20 @@ const testimonials = [
     rating: 5,
     text: 'Woke up to no hot water on a Monday morning. GrowBridge had a tech out by 10am. He showed me the issue, explained the two options, gave me the exact prices, and had my new heater installed and running by noon. Outstanding.',
     initials: 'DR',
-    color: 'bg-status-green',
+    avatarBg: 'bg-status-green',
+    accentColor: 'text-status-green',
+    tagBg: 'bg-status-green-bg text-status-green',
   },
   {
     name: 'Jennifer K.',
     location: 'Bellevue, WA',
     service: 'Drain cleaning',
     rating: 5,
-    text: 'Three different plumbers told me I might need to tear up my floor to fix the drain. GrowBridge used a camera and found the actual blockage in 10 minutes, cleared it in 20, and didn\'t touch my floor. $180 instead of $3,000.',
+    text: "Three different plumbers told me I might need to tear up my floor to fix the drain. GrowBridge used a camera and found the actual blockage in 10 minutes, cleared it in 20, and didn't touch my floor. $180 instead of $3,000.",
     initials: 'JK',
-    color: 'bg-status-amber',
+    avatarBg: 'bg-status-amber',
+    accentColor: 'text-status-amber',
+    tagBg: 'bg-status-amber-bg text-status-amber',
   },
   {
     name: 'Tom H.',
@@ -38,7 +44,9 @@ const testimonials = [
     rating: 5,
     text: 'Had a rocking toilet and a dripping bathroom faucet. Called in the morning, tech was there by 1pm. Fixed both in under 2 hours, left the bathroom spotless. Honest guys — he actually talked me out of an unnecessary part.',
     initials: 'TH',
-    color: 'bg-apple-blue',
+    avatarBg: 'bg-apple-blue',
+    accentColor: 'text-apple-blue',
+    tagBg: 'bg-apple-blue-light text-apple-blue',
   },
   {
     name: 'Angela P.',
@@ -47,7 +55,9 @@ const testimonials = [
     rating: 5,
     text: 'Sewer line issue that 2 companies wanted $8,000 to fix. GrowBridge did a camera inspection, diagnosed the actual problem, and repaired it trenchlessly for $2,400. They saved my yard and saved me $5,600.',
     initials: 'AP',
-    color: 'bg-status-green',
+    avatarBg: 'bg-status-green',
+    accentColor: 'text-status-green',
+    tagBg: 'bg-status-green-bg text-status-green',
   },
   {
     name: 'Marcus W.',
@@ -56,11 +66,13 @@ const testimonials = [
     rating: 5,
     text: 'Needed a gas line run for a new range. GrowBridge pulled the permit, scheduled the utility inspection, and did the whole job in one day. Clean work, all up to code. The inspector actually complimented the installation.',
     initials: 'MW',
-    color: 'bg-status-amber',
+    avatarBg: 'bg-status-amber',
+    accentColor: 'text-status-amber',
+    tagBg: 'bg-status-amber-bg text-status-amber',
   },
 ]
 
-function StarRating({ count }: { count: number }) {
+function Stars({ count }: { count: number }) {
   return (
     <div className="flex items-center gap-0.5">
       {[...Array(count)].map((_, i) => (
@@ -91,8 +103,12 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 lg:py-32 bg-apple-surface">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="testimonials" ref={sectionRef} className="py-24 lg:py-32 bg-apple-surface relative overflow-hidden">
+      {/* Background orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-apple-blue/4 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3 animate-float-slow" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-status-green/3 rounded-full blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3 animate-float-reverse" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div className="max-w-xl">
@@ -109,8 +125,8 @@ export default function Testimonials() {
           </div>
 
           {/* Google badge */}
-          <div className="flex-shrink-0 bg-white rounded-2xl shadow-card border border-apple-border-subtle p-6 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #4285F4, #34A853)' }}>
+          <div className="flex-shrink-0 bg-white rounded-2xl shadow-card border border-apple-border-subtle p-6 flex items-center gap-4 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-card" style={{ background: 'linear-gradient(135deg, #4285F4, #34A853)' }}>
               <svg viewBox="0 0 24 24" className="w-7 h-7" fill="white">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -120,7 +136,7 @@ export default function Testimonials() {
             </div>
             <div>
               <div className="flex items-center gap-1.5 mb-1">
-                <span className="text-[24px] font-bold text-apple-dark tracking-tight">4.9</span>
+                <span className="text-[28px] font-bold text-apple-dark tracking-tight">4.9</span>
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-4 h-4" viewBox="0 0 20 20" fill="#FF9F0A">
@@ -136,27 +152,37 @@ export default function Testimonials() {
 
         {/* Testimonials grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className="bg-white rounded-2xl p-6 shadow-card border border-apple-border-subtle flex flex-col"
+              style={{ animationDelay: `${i * 70}ms` }}
+              className="group relative bg-white rounded-2xl p-6 shadow-card border border-apple-border-subtle flex flex-col
+                         hover:shadow-lift hover:-translate-y-2 hover:border-transparent transition-all duration-300 overflow-hidden"
             >
+              {/* Decorative quote */}
+              <div className="absolute top-3 right-4 text-[80px] font-black text-apple-dark/[0.04] leading-none select-none pointer-events-none group-hover:text-apple-blue/8 transition-colors duration-500">
+                "
+              </div>
+
+              {/* Top accent line */}
+              <div className={`absolute top-0 left-6 right-6 h-0.5 ${t.avatarBg} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
               {/* Stars */}
-              <StarRating count={t.rating} />
+              <Stars count={t.rating} />
 
               {/* Quote */}
-              <p className="text-[15px] text-apple-dark leading-relaxed my-4 flex-1">
+              <p className="text-[15px] text-apple-dark leading-relaxed my-4 flex-1 relative z-10">
                 "{t.text}"
               </p>
 
               {/* Service tag */}
-              <span className="inline-block self-start px-3 py-1.5 bg-apple-blue-light text-apple-blue text-[12px] font-semibold rounded-full mb-4">
+              <span className={`inline-block self-start px-3 py-1.5 text-[12px] font-semibold rounded-full mb-4 ${t.tagBg}`}>
                 {t.service}
               </span>
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-apple-border-subtle">
-                <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0`}>
+                <div className={`w-10 h-10 rounded-full ${t.avatarBg} flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
                   {t.initials}
                 </div>
                 <div>

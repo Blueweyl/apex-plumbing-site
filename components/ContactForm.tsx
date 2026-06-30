@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Phone, Clock, CheckCircle2 } from 'lucide-react'
+import { Phone, Clock, CheckCircle2, Sparkles } from 'lucide-react'
 import { trackFormStart, trackFormSubmit, trackPhoneClick, trackEvent } from '@/lib/analytics'
 import { cn } from '@/lib/utils'
 
@@ -35,6 +35,13 @@ const services = [
   'Gas line',
   'Other',
 ]
+
+const inputClass = cn(
+  'w-full px-4 py-3.5 bg-apple-surface rounded-xl text-[15px] text-apple-dark placeholder:text-apple-tertiary',
+  'outline-none border-2 border-transparent transition-all duration-200',
+  'hover:bg-white hover:border-apple-border-subtle',
+  'focus:bg-white focus:border-apple-blue focus:shadow-glow-blue'
+)
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -76,18 +83,21 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-3xl shadow-elevated border border-apple-border-subtle p-10 text-center">
-        <div className="w-16 h-16 bg-status-green-bg rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 size={32} className="text-status-green" />
+      <div className="bg-white rounded-3xl shadow-elevated border border-apple-border-subtle p-10 text-center animate-scale-in">
+        <div className="relative w-20 h-20 mx-auto mb-6">
+          <div className="absolute inset-0 bg-status-green-bg rounded-full animate-ping" style={{ animationDuration: '1.5s' }} />
+          <div className="relative w-20 h-20 bg-status-green-bg rounded-full flex items-center justify-center">
+            <CheckCircle2 size={36} className="text-status-green" />
+          </div>
         </div>
-        <h3 className="text-[24px] font-bold text-apple-dark mb-3">We got it. Expect a call soon.</h3>
+        <h3 className="text-[26px] font-bold text-apple-dark mb-3">We got it. Expect a call soon.</h3>
         <p className="text-[17px] text-apple-secondary leading-relaxed max-w-sm mx-auto mb-8">
           A dispatcher will call you within 15 minutes to confirm the job and get a tech moving.
         </p>
-        <div className="inline-flex items-center gap-3 px-6 py-3 bg-apple-surface rounded-xl">
+        <div className="inline-flex items-center gap-3 px-6 py-3.5 bg-apple-surface rounded-xl border border-apple-border-subtle">
           <Clock size={18} className="text-apple-blue" />
           <span className="text-[15px] font-medium text-apple-dark">
-            Avg. callback time: 12 minutes
+            Avg. callback time: <span className="text-apple-blue font-bold">12 minutes</span>
           </span>
         </div>
       </div>
@@ -97,10 +107,16 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-3xl shadow-elevated border border-apple-border-subtle p-8 lg:p-10"
+      className="bg-white rounded-3xl shadow-elevated border border-apple-border-subtle p-8 lg:p-10 hover:shadow-modal transition-shadow duration-500"
       noValidate
     >
-      <h3 className="text-[22px] font-bold text-apple-dark mb-1">Get a free estimate</h3>
+      <div className="flex items-start justify-between mb-1">
+        <h3 className="text-[22px] font-bold text-apple-dark">Get a free estimate</h3>
+        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-status-green-bg rounded-full">
+          <span className="w-1.5 h-1.5 bg-status-green rounded-full animate-pulse" />
+          <span className="text-[12px] font-semibold text-status-green">Responding now</span>
+        </div>
+      </div>
       <p className="text-[15px] text-apple-secondary mb-8">
         Fill this out and we'll call within 15 minutes.
       </p>
@@ -116,17 +132,18 @@ export default function ContactForm() {
             onFocus={handleFocus}
             placeholder="First and last name"
             className={cn(
-              'w-full px-4 py-3 bg-apple-surface rounded-xl text-[15px] text-apple-dark placeholder:text-apple-tertiary outline-none transition-all',
-              'focus:ring-2 focus:ring-apple-blue focus:bg-white',
-              errors.name && 'ring-2 ring-status-red bg-status-red-bg'
+              inputClass,
+              errors.name && 'border-status-red bg-status-red-bg focus:border-status-red focus:shadow-none'
             )}
           />
           {errors.name && (
-            <p className="mt-1.5 text-[13px] text-status-red">{errors.name.message}</p>
+            <p className="mt-1.5 text-[13px] text-status-red flex items-center gap-1">
+              <span>↑</span> {errors.name.message}
+            </p>
           )}
         </div>
 
-        {/* Phone + Email row */}
+        {/* Phone + Email */}
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-[14px] font-semibold text-apple-dark mb-2">
@@ -138,9 +155,8 @@ export default function ContactForm() {
               type="tel"
               placeholder="(555) 000-0000"
               className={cn(
-                'w-full px-4 py-3 bg-apple-surface rounded-xl text-[15px] text-apple-dark placeholder:text-apple-tertiary outline-none transition-all',
-                'focus:ring-2 focus:ring-apple-blue focus:bg-white',
-                errors.phone && 'ring-2 ring-status-red bg-status-red-bg'
+                inputClass,
+                errors.phone && 'border-status-red bg-status-red-bg focus:border-status-red focus:shadow-none'
               )}
             />
             {errors.phone && (
@@ -156,7 +172,7 @@ export default function ContactForm() {
               onFocus={handleFocus}
               type="email"
               placeholder="you@email.com"
-              className="w-full px-4 py-3 bg-apple-surface rounded-xl text-[15px] text-apple-dark placeholder:text-apple-tertiary outline-none transition-all focus:ring-2 focus:ring-apple-blue focus:bg-white"
+              className={inputClass}
             />
           </div>
         </div>
@@ -170,9 +186,9 @@ export default function ContactForm() {
             {...register('service')}
             onFocus={handleFocus}
             className={cn(
-              'w-full px-4 py-3 bg-apple-surface rounded-xl text-[15px] text-apple-dark outline-none transition-all appearance-none cursor-pointer',
-              'focus:ring-2 focus:ring-apple-blue focus:bg-white',
-              errors.service && 'ring-2 ring-status-red bg-status-red-bg'
+              inputClass,
+              'appearance-none cursor-pointer',
+              errors.service && 'border-status-red bg-status-red-bg'
             )}
           >
             <option value="">Select a service...</option>
@@ -204,7 +220,10 @@ export default function ContactForm() {
                   value={value}
                   className="sr-only peer"
                 />
-                <div className="p-3 bg-apple-surface rounded-xl border-2 border-transparent peer-checked:border-apple-blue peer-checked:bg-apple-blue-light transition-all text-center">
+                <div className="p-3 bg-apple-surface rounded-xl border-2 border-transparent
+                                peer-checked:border-apple-blue peer-checked:bg-apple-blue-light peer-checked:shadow-glow-blue
+                                hover:border-apple-blue/30 hover:bg-apple-blue-light/50
+                                transition-all duration-200 text-center">
                   <p className="text-[13px] font-semibold text-apple-dark">{label}</p>
                   <p className="text-[11px] text-apple-secondary">{desc}</p>
                 </div>
@@ -223,7 +242,7 @@ export default function ContactForm() {
             onFocus={handleFocus}
             rows={3}
             placeholder="e.g., Pipe under kitchen sink dripping, water pooling in cabinet..."
-            className="w-full px-4 py-3 bg-apple-surface rounded-xl text-[15px] text-apple-dark placeholder:text-apple-tertiary outline-none transition-all focus:ring-2 focus:ring-apple-blue focus:bg-white resize-none"
+            className={cn(inputClass, 'resize-none')}
           />
         </div>
 
@@ -238,9 +257,29 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 bg-apple-blue text-white text-[17px] font-semibold rounded-xl hover:bg-apple-blue-hover transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-card"
+          className="group relative w-full py-4 bg-apple-blue text-white text-[17px] font-semibold rounded-xl
+                     hover:bg-apple-blue-hover hover:shadow-glow-blue hover:-translate-y-0.5
+                     transition-all duration-200 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed
+                     overflow-hidden shadow-card"
         >
-          {isSubmitting ? 'Sending...' : 'Request Free Estimate'}
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+          <span className="relative flex items-center justify-center gap-2">
+            {isSubmitting ? (
+              <>
+                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Sending...
+              </>
+            ) : (
+              <>
+                <Sparkles size={18} className="group-hover:rotate-12 transition-transform duration-300" />
+                Request Free Estimate
+              </>
+            )}
+          </span>
         </button>
 
         <p className="text-center text-[13px] text-apple-tertiary">
