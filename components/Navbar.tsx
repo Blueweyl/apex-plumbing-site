@@ -43,7 +43,7 @@ export default function Navbar() {
               </svg>
             </div>
             <div>
-              <span className="text-[17px] font-semibold text-apple-dark tracking-tight">Apex Plumbing</span>
+              <span className="text-[17px] font-semibold text-apple-dark tracking-tight">GrowBridge Plumbing</span>
             </div>
           </a>
 

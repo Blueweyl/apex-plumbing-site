@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Apex Plumbing — 24/7 Plumbing Services | Licensed & Insured',
+  title: 'GrowBridge Plumbing — 24/7 Plumbing Services | Licensed & Insured',
   description:
     'Fast, reliable plumbing in your area. Water heaters, drain cleaning, emergency repairs, and more. Same-day service. Licensed & insured techs. Call now: (555) 247-8629.',
   keywords: 'plumbing services, emergency plumber, drain cleaning, water heater, local plumber',
   openGraph: {
-    title: 'Apex Plumbing — 24/7 Plumbing Services',
+    title: 'GrowBridge Plumbing — 24/7 Plumbing Services',
     description: 'Same-day plumbing repairs. Licensed techs. Upfront pricing. Call now.',
     type: 'website',
   },

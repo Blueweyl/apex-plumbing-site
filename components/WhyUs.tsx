@@ -45,7 +45,7 @@ export default function WhyUs() {
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold text-apple-dark tracking-tighter leading-tight mb-6">
               Why 800+ families
-              <br />choose Apex.
+              <br />choose GrowBridge.
             </h2>
             <p className="text-[19px] text-apple-secondary leading-relaxed mb-10">
               Any plumber can unclog a drain. What makes us different is how we

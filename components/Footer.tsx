@@ -45,10 +45,10 @@ export default function Footer() {
                   <circle cx="10" cy="11" r="2.5" fill="#0071E3" />
                 </svg>
               </div>
-              <span className="text-[17px] font-semibold">Apex Plumbing</span>
+              <span className="text-[17px] font-semibold">GrowBridge Plumbing</span>
             </div>
             <p className="text-[14px] text-white/60 leading-relaxed mb-6">
-              Licensed, insured plumbing services across the Greater Seattle area since 2009.
+              Licensed, insured plumbing services across the Greater Seattle area.
               We pick up every call.
             </p>
             <div className="space-y-2">
@@ -130,7 +130,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[13px] text-white/40">
-            © {new Date().getFullYear()} Apex Plumbing. All rights reserved.
+            © {new Date().getFullYear()} GrowBridge Plumbing. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((link) => (

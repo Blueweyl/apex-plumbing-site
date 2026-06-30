@@ -88,7 +88,7 @@ export default function Hero() {
                     <Phone size={22} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-[15px] font-semibold text-apple-dark">Apex Plumbing Dispatch</p>
+                    <p className="text-[15px] font-semibold text-apple-dark">GrowBridge Plumbing Dispatch</p>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 bg-status-green rounded-full" />
                       <p className="text-[13px] text-apple-secondary">Techs available now</p>
