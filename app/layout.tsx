@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ThemeProvider from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'GrowBridge Plumbing — 24/7 Plumbing Services | Licensed & Insured',
@@ -15,12 +16,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <meta name="theme-color" content="#0071E3" />
       </head>
-      <body className="bg-white text-apple-dark antialiased">{children}</body>
+      <body className="bg-white dark:bg-zinc-950 text-apple-dark dark:text-white antialiased transition-colors duration-300">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }

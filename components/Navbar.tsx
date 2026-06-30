@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Phone, Menu, X } from 'lucide-react'
 import { trackEvent, trackPhoneClick } from '@/lib/analytics'
 import { cn } from '@/lib/utils'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -28,7 +29,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-card border-b border-apple-border-subtle'
+          ? 'bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl shadow-card border-b border-apple-border-subtle dark:border-zinc-800'
           : 'bg-transparent'
       )}
     >
@@ -41,10 +42,9 @@ export default function Navbar() {
                 <path d="M10 2C10 2 4 6 4 11C4 14.314 6.686 17 10 17C13.314 17 16 14.314 16 11C16 6 10 2 10 2Z" fill="white" />
                 <circle cx="10" cy="11" r="2.5" fill="#0071E3" />
               </svg>
-              {/* Live dot */}
-              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-status-green rounded-full border-2 border-white" />
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-status-green rounded-full border-2 border-white dark:border-zinc-900" />
             </div>
-            <span className="text-[17px] font-semibold text-apple-dark tracking-tight group-hover:text-apple-blue transition-colors duration-200">
+            <span className="text-[17px] font-semibold text-apple-dark dark:text-white tracking-tight group-hover:text-apple-blue transition-colors duration-200">
               GrowBridge Plumbing
             </span>
           </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="relative px-4 py-2 text-[15px] text-apple-secondary hover:text-apple-dark rounded-lg hover:bg-apple-surface transition-all duration-150 group"
+                className="relative px-4 py-2 text-[15px] text-apple-secondary dark:text-zinc-400 hover:text-apple-dark dark:hover:text-white rounded-lg hover:bg-apple-surface dark:hover:bg-zinc-800 transition-all duration-150 group"
               >
                 {link.label}
                 <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-apple-blue rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
@@ -63,12 +63,13 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + Phone */}
+          {/* CTA + Phone + Toggle */}
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href="tel:5552478629"
               onClick={() => trackPhoneClick('navbar')}
-              className="group flex items-center gap-2 text-[15px] font-medium text-apple-dark hover:text-apple-blue transition-colors duration-200"
+              className="group flex items-center gap-2 text-[15px] font-medium text-apple-dark dark:text-white hover:text-apple-blue dark:hover:text-apple-blue transition-colors duration-200"
             >
               <Phone size={16} className="text-apple-blue group-hover:rotate-12 transition-transform duration-300" />
               (555) 247-8629
@@ -83,40 +84,40 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-apple-surface transition-colors"
-            aria-label="Toggle menu"
-          >
-            {menuOpen
-              ? <X size={20} className="animate-scale-in" />
-              : <Menu size={20} className="animate-scale-in" />
-            }
-          </button>
+          {/* Mobile: toggle + menu */}
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-apple-surface dark:hover:bg-zinc-800 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-apple-border-subtle px-6 pb-6 pt-4 animate-fade-up">
+        <div className="lg:hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border-t border-apple-border-subtle dark:border-zinc-800 px-6 pb-6 pt-4 animate-fade-up">
           <nav className="flex flex-col gap-1 mb-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="px-4 py-3 text-[17px] text-apple-dark hover:bg-apple-surface hover:text-apple-blue rounded-lg transition-all duration-150"
+                className="px-4 py-3 text-[17px] text-apple-dark dark:text-white hover:bg-apple-surface dark:hover:bg-zinc-800 hover:text-apple-blue rounded-lg transition-all duration-150"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="flex flex-col gap-3 pt-4 border-t border-apple-border-subtle">
+          <div className="flex flex-col gap-3 pt-4 border-t border-apple-border-subtle dark:border-zinc-800">
             <a
               href="tel:5552478629"
               onClick={() => trackPhoneClick('mobile_nav')}
-              className="flex items-center justify-center gap-2 py-3.5 bg-apple-surface rounded-xl text-[17px] font-medium text-apple-dark hover:bg-apple-blue-light transition-colors duration-200"
+              className="flex items-center justify-center gap-2 py-3.5 bg-apple-surface dark:bg-zinc-800 rounded-xl text-[17px] font-medium text-apple-dark dark:text-white hover:bg-apple-blue-light dark:hover:bg-zinc-700 transition-colors duration-200"
             >
               <Phone size={18} className="text-apple-blue" />
               (555) 247-8629
