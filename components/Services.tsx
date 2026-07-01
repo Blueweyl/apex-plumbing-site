@@ -68,6 +68,7 @@ const services = [
     iconGrad: 'from-amber-400/25 to-yellow-400/25 dark:from-amber-400/30 dark:to-yellow-400/30',
     hoverGrad: 'group-hover:from-amber-400/40 group-hover:to-yellow-400/40',
     glowColor: 'rgba(255,159,10,0.12)',
+    image: '/sewer line.jpeg',
   },
   {
     emoji: '🔧',
