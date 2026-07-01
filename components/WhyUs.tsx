@@ -53,7 +53,7 @@ export default function WhyUs() {
         />
       </div>
       {/* Overlay — light enough to see the photo, dark enough to read text */}
-      <div className="absolute inset-0 dark:bg-zinc-950/85 pointer-events-none" style={{ background: 'rgba(255,255,255,0.65)' }} />
+      <div className="absolute inset-0 dark:bg-zinc-950/85 pointer-events-none" style={{ background: 'rgba(255,255,255,0.82)' }} />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
