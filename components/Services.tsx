@@ -46,6 +46,7 @@ const services = [
     iconGrad: 'from-apple-blue/20 to-blue-400/20 dark:from-apple-blue/25 dark:to-blue-400/25',
     hoverGrad: 'group-hover:from-apple-blue/35 group-hover:to-blue-400/35',
     glowColor: 'rgba(0,113,227,0.12)',
+    image: '/toilet repair.jpeg',
   },
   {
     emoji: '🚰',
