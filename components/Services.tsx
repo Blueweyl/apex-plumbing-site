@@ -57,6 +57,7 @@ const services = [
     iconGrad: 'from-cyan-400/20 to-apple-blue/20 dark:from-cyan-400/25 dark:to-apple-blue/25',
     hoverGrad: 'group-hover:from-cyan-400/35 group-hover:to-apple-blue/35',
     glowColor: 'rgba(0,194,255,0.12)',
+    image: '/faucet & fixtures.jpeg',
   },
   {
     emoji: '🏗️',
