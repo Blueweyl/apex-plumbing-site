@@ -114,7 +114,7 @@ export default function Services() {
           <img
             src="/1.jpeg"
             alt="GrowBridge Plumbing van and technician ready to serve"
-            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover object-[center_15%] hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent" />
