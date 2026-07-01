@@ -23,6 +23,7 @@ const services = [
     iconGrad: 'from-orange-400/25 to-amber-400/25 dark:from-orange-400/30 dark:to-amber-400/30',
     hoverGrad: 'group-hover:from-orange-400/40 group-hover:to-amber-400/40',
     glowColor: 'rgba(255,159,10,0.12)',
+    image: '/water heater.jpeg',
   },
   {
     emoji: '🪠',
@@ -201,10 +202,19 @@ export default function Services() {
                 </span>
               )}
 
-              {/* Gradient icon box */}
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.iconGrad} ${service.hoverGrad} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/50 dark:border-zinc-700/50`}>
-                <span className="text-3xl leading-none">{service.emoji}</span>
-              </div>
+              {/* Icon or image */}
+              {'image' in service && service.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={service.image as string}
+                  alt={service.title}
+                  className="w-14 h-14 rounded-2xl object-cover mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/20 dark:border-zinc-700/50 shadow-md"
+                />
+              ) : (
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.iconGrad} ${service.hoverGrad} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/50 dark:border-zinc-700/50`}>
+                  <span className="text-3xl leading-none">{service.emoji}</span>
+                </div>
+              )}
 
               <h3 className="text-[17px] font-semibold text-apple-dark dark:text-white mb-2 group-hover:text-apple-blue transition-colors duration-200">
                 {service.title}
