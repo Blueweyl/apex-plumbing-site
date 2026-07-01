@@ -42,10 +42,18 @@ export default function WhyUs() {
   const reviews = useCountUp(847)
 
   return (
-    <section id="why-us" className="py-24 lg:py-32 section-bg-alt dark:bg-zinc-950 relative overflow-hidden">
-      <div className="absolute inset-0 mesh-subtle pointer-events-none opacity-70" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full blur-[120px] pointer-events-none"
-           style={{ background: 'radial-gradient(circle, hsla(262,100%,65%,0.05) 0%, transparent 70%)' }} />
+    <section id="why-us" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Happy customer background photo */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/happy customer.jpeg"
+          alt=""
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+      {/* Strong overlay so cards and text stay readable */}
+      <div className="absolute inset-0 bg-white/88 dark:bg-zinc-950/92 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
