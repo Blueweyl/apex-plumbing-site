@@ -26,7 +26,9 @@ export default function Hero() {
 
       {/* Mesh gradient base */}
       <div className="absolute inset-0 mesh-light dark:mesh-dark pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white dark:via-zinc-950/60 dark:to-zinc-950 pointer-events-none" />
+      {/* Strong left overlay so text is always readable over the photo */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/75 to-transparent dark:from-zinc-950/95 dark:via-zinc-950/70 dark:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60 dark:from-zinc-950/40 dark:to-zinc-950/60 pointer-events-none" />
 
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid opacity-[0.025] dark:opacity-[0.04] pointer-events-none" />
@@ -56,7 +58,7 @@ export default function Hero() {
               {' '}Not next week.
             </h1>
 
-            <p className="text-[19px] text-apple-dark dark:text-zinc-100 leading-relaxed max-w-lg font-medium">
+            <p className="text-[22px] text-apple-dark dark:text-zinc-100 leading-relaxed max-w-lg font-semibold">
               Licensed plumbers at your door in under 2 hours. Upfront pricing
               before we touch a single pipe. Guaranteed work — or we come back free.
             </p>
@@ -107,12 +109,12 @@ export default function Hero() {
                 { icon: Clock, label: 'Same-day service', sub: 'Avg. 90 min response', gradient: 'from-apple-blue/20 to-accent-purple/20' },
               ].map(({ icon: Icon, label, sub, gradient }) => (
                 <div key={label} className="flex items-center gap-3 group cursor-default">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-glow-blue transition-all duration-300`}>
-                    <Icon size={18} className="text-apple-blue" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-glow-blue transition-all duration-300`}>
+                    <Icon size={22} className="text-apple-blue" />
                   </div>
                   <div>
-                    <p className="text-[14px] font-semibold text-apple-dark dark:text-white leading-tight">{label}</p>
-                    <p className="text-[12px] text-apple-secondary dark:text-zinc-500">{sub}</p>
+                    <p className="text-[17px] font-bold text-apple-dark dark:text-white leading-tight">{label}</p>
+                    <p className="text-[14px] font-medium text-apple-secondary dark:text-zinc-400">{sub}</p>
                   </div>
                 </div>
               ))}
