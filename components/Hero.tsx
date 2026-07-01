@@ -43,14 +43,14 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/4 w-[200px] h-[200px] rounded-full blur-[60px] pointer-events-none animate-float delay-3000"
            style={{ background: 'radial-gradient(circle, hsla(340,100%,60%,0.07) 0%, transparent 70%)' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32 w-full">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 sm:py-20 lg:py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left */}
           <div className="animate-fade-up">
 
             {/* Headline */}
-            <h1 className="text-6xl lg:text-7xl font-black text-apple-dark dark:text-white tracking-tighter leading-[1.02] mb-6 text-balance">
+            <h1 className="text-[2.4rem] sm:text-5xl lg:text-7xl font-black text-apple-dark dark:text-white tracking-tighter leading-[1.05] lg:leading-[1.02] mb-4 sm:mb-6 text-balance">
               Plumbing problems{' '}
               <span className="relative inline-block gradient-text-brand">
                 fixed today.
@@ -58,7 +58,7 @@ export default function Hero() {
               {' '}Not next week.
             </h1>
 
-            <p className="text-[22px] text-black dark:text-zinc-100 leading-relaxed max-w-lg font-bold">
+            <p className="text-[16px] sm:text-[20px] lg:text-[22px] text-black dark:text-zinc-100 leading-relaxed max-w-lg font-bold">
               Licensed plumbers at your door in under 2 hours. Upfront pricing
               before we touch a single pipe. Guaranteed work — or we come back free.
             </p>
@@ -76,7 +76,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-12">
               <a
                 href="tel:5552478629"
                 onClick={() => { trackPhoneClick('hero'); trackEvent('hero_cta_clicked', { label: 'call_now' }) }}
@@ -122,8 +122,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Plumber photo with dispatch overlay */}
-          <div className="relative animate-scale-in delay-200">
+          {/* Right — Plumber photo with dispatch overlay (desktop only) */}
+          <div className="relative animate-scale-in delay-200 hidden lg:block">
 
             {/* Photo container */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ height: '620px' }}>

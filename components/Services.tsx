@@ -117,7 +117,7 @@ export default function Services() {
         </div>
 
         {/* Van photo banner */}
-        <div className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl" style={{ height: '420px' }}>
+        <div className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl h-[200px] sm:h-[300px] lg:h-[420px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/1.jpeg"
@@ -154,7 +154,7 @@ export default function Services() {
                 href="#contact"
                 onClick={() => trackServiceClick(service.title)}
                 style={{ animationDelay: `${i * 60}ms` }}
-                className="group relative flex flex-col justify-end rounded-2xl overflow-hidden shadow-card hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                className="group relative flex flex-col justify-end rounded-2xl overflow-hidden shadow-card hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer min-h-[220px]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
