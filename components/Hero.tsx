@@ -109,8 +109,9 @@ export default function Hero() {
                 { icon: Clock, label: 'Same-day service', sub: 'Avg. 90 min response', gradient: 'from-apple-blue/20 to-accent-purple/20' },
               ].map(({ icon: Icon, label, sub, gradient }) => (
                 <div key={label} className="flex items-center gap-3 group cursor-default">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-glow-blue transition-all duration-300`}>
-                    <Icon size={22} className="text-apple-blue" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
+                       style={{ background: '#003A9B' }}>
+                    <Icon size={22} className="text-white" />
                   </div>
                   <div>
                     <p className="text-[17px] font-bold text-apple-dark dark:text-white leading-tight">{label}</p>
