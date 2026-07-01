@@ -20,7 +20,7 @@ export default function Hero() {
           src="/worriedowner-plumber.jpeg"
           alt=""
           className="w-full h-full object-cover object-center"
-          style={{ opacity: 0.5 }}
+          style={{ opacity: 0.8 }}
         />
       </div>
 
