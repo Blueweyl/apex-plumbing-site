@@ -108,50 +108,68 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — dispatch card */}
+          {/* Right — Plumber photo with dispatch overlay */}
           <div className="relative animate-scale-in delay-200">
-            <div className="relative rounded-3xl p-8 border border-apple-border-subtle dark:border-zinc-700 overflow-hidden"
-                 style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(20px)' }}>
-              {/* Card mesh bg */}
-              <div className="absolute inset-0 pointer-events-none"
-                   style={{ backgroundImage: 'radial-gradient(at 100% 0%, hsla(262,100%,65%,0.06) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(211,100%,44%,0.05) 0px, transparent 50%)' }} />
-              <div className="absolute inset-0 dark:block hidden pointer-events-none rounded-3xl"
-                   style={{ background: 'rgba(24,24,27,0.90)', backdropFilter: 'blur(20px)' }} />
 
-              <div className="relative">
+            {/* Photo container */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ height: '620px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/0.jpeg"
+                alt="Professional GrowBridge plumber ready to help"
+                className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
+              />
+
+              {/* Gradient overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-zinc-950/20" />
+
+              {/* Floating badge — top right */}
+              <div className="absolute top-5 right-5 flex items-center gap-2 bg-zinc-900/80 backdrop-blur-md rounded-full px-4 py-2 border border-white/10 shadow-float animate-float">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75" />
+                  <span className="relative w-2 h-2 bg-status-green rounded-full" />
+                </span>
+                <span className="text-[13px] font-semibold text-white">3 techs nearby</span>
+              </div>
+
+              {/* Dispatch card overlay — bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 rounded-b-3xl border-t border-white/10"
+                   style={{ background: 'rgba(15,15,18,0.82)', backdropFilter: 'blur(20px)' }}>
+
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6 pb-6 border-b border-apple-border-subtle dark:border-zinc-800">
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center animate-glow-pulse"
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 animate-glow-pulse"
                          style={{ background: 'linear-gradient(135deg, #0071E3 0%, #7B61FF 100%)' }}>
-                      <Phone size={22} className="text-white" />
+                      <Phone size={18} className="text-white" />
                     </div>
                     <div>
-                      <p className="text-[15px] font-semibold text-apple-dark dark:text-white">GrowBridge Plumbing Dispatch</p>
+                      <p className="text-[14px] font-semibold text-white">GrowBridge Plumbing Dispatch</p>
                       <div className="flex items-center gap-1.5">
-                        <span className="relative flex h-2 w-2">
+                        <span className="relative flex h-1.5 w-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75" />
-                          <span className="relative w-2 h-2 bg-status-green rounded-full" />
+                          <span className="relative w-1.5 h-1.5 bg-status-green rounded-full" />
                         </span>
-                        <p className="text-[13px] text-apple-secondary dark:text-zinc-400">Techs available now</p>
+                        <p className="text-[12px] text-zinc-400">Techs available now</p>
                       </div>
                     </div>
                   </div>
-                  <span className="px-3 py-1.5 bg-status-green-bg dark:bg-green-950/60 text-status-green text-[12px] font-semibold rounded-full border border-status-green/20">
+                  <span className="px-2.5 py-1 bg-green-950/60 text-status-green text-[11px] font-semibold rounded-full border border-status-green/20">
                     Open 24/7
                   </span>
                 </div>
 
                 {/* Jobs */}
-                <div className="space-y-2.5 mb-6">
+                <div className="space-y-2 mb-4">
                   {jobs.map((job) => (
-                    <div key={job.service} className="group flex items-center gap-4 p-4 bg-apple-surface/80 dark:bg-zinc-800/80 rounded-xl hover:bg-apple-blue-light dark:hover:bg-zinc-700 hover:scale-[1.01] transition-all duration-200 cursor-default">
-                      <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{job.emoji}</span>
+                    <div key={job.service} className="group flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-default">
+                      <span className="text-xl group-hover:scale-125 transition-transform duration-300">{job.emoji}</span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[14px] font-semibold text-apple-dark dark:text-white truncate">{job.service}</p>
+                        <p className="text-[13px] font-semibold text-white truncate">{job.service}</p>
                         <div className="flex items-center gap-1.5 mt-0.5">
                           <span className={`w-1.5 h-1.5 rounded-full ${job.dot} animate-pulse`} />
-                          <p className={`text-[12px] font-medium ${job.textColor}`}>{job.time}</p>
+                          <p className={`text-[11px] font-medium ${job.textColor}`}>{job.time}</p>
                         </div>
                       </div>
                     </div>
@@ -159,39 +177,30 @@ export default function Hero() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2">
                   {[
-                    { value: '90 min', label: 'Avg arrival', grad: 'from-apple-blue/10 to-accent-purple/10' },
-                    { value: '4.9★', label: 'Google rating', grad: 'from-amber-400/10 to-orange-400/10' },
-                    { value: '15yr', label: 'In business', grad: 'from-status-green/10 to-teal-400/10' },
-                  ].map(({ value, label, grad }) => (
-                    <div key={label} className={`group text-center py-4 bg-gradient-to-br ${grad} dark:bg-zinc-800 rounded-xl hover:bg-apple-blue hover:shadow-glow-blue hover:-translate-y-0.5 transition-all duration-300 cursor-default border border-white/50 dark:border-zinc-700`}>
-                      <p className="text-[20px] font-bold text-apple-dark dark:text-white tracking-tight group-hover:text-white transition-colors duration-300">{value}</p>
-                      <p className="text-[11px] text-apple-secondary dark:text-zinc-400 mt-0.5 group-hover:text-blue-100 transition-colors duration-300">{label}</p>
+                    { value: '90 min', label: 'Avg arrival' },
+                    { value: '4.9★', label: 'Google rating' },
+                    { value: '15yr', label: 'In business' },
+                  ].map(({ value, label }) => (
+                    <div key={label} className="text-center py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 cursor-default border border-white/5">
+                      <p className="text-[18px] font-bold text-white tracking-tight">{value}</p>
+                      <p className="text-[10px] text-zinc-400 mt-0.5">{label}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Floating review */}
-            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-zinc-900 rounded-2xl shadow-float p-4 border border-apple-border-subtle dark:border-zinc-700 max-w-[220px] hidden lg:block animate-float-slow hover:-translate-y-2 transition-transform duration-300">
+            {/* Floating review card */}
+            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-zinc-900 rounded-2xl shadow-float p-4 border border-apple-border-subtle dark:border-zinc-700 max-w-[210px] hidden lg:block animate-float-slow hover:-translate-y-2 transition-transform duration-300">
               <div className="flex items-center gap-0.5 mb-2">
-                {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#FF9F0A" stroke="none" />)}
+                {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#FF9F0A" stroke="none" />)}
               </div>
-              <p className="text-[13px] text-apple-dark dark:text-white leading-snug font-medium">
+              <p className="text-[12px] text-apple-dark dark:text-white leading-snug font-medium">
                 "Showed up in 45 minutes. Fixed our burst pipe. Couldn't believe how fast."
               </p>
-              <p className="text-[11px] text-apple-secondary dark:text-zinc-400 mt-2">— Mike T., Tacoma</p>
-            </div>
-
-            {/* Floating badge */}
-            <div className="absolute -top-4 -right-4 hidden lg:flex items-center gap-2 bg-white dark:bg-zinc-900 rounded-full px-4 py-2 shadow-float border border-apple-border-subtle dark:border-zinc-800 animate-float delay-1000">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75" />
-                <span className="relative w-2 h-2 bg-status-green rounded-full" />
-              </span>
-              <span className="text-[13px] font-semibold text-apple-dark dark:text-white">3 techs nearby</span>
+              <p className="text-[11px] text-apple-secondary dark:text-zinc-500 mt-2">— Mike T., Tacoma</p>
             </div>
           </div>
         </div>
