@@ -42,7 +42,7 @@ export default function WhyUs() {
   const reviews = useCountUp(847)
 
   return (
-    <section id="why-us" className="py-24 lg:py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
+    <section id="why-us" className="py-24 lg:py-32 section-bg dark:bg-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 mesh-subtle pointer-events-none opacity-70" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full blur-[120px] pointer-events-none"
            style={{ background: 'radial-gradient(circle, hsla(262,100%,65%,0.05) 0%, transparent 70%)' }} />

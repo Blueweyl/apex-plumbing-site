@@ -11,7 +11,7 @@ const jobs = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-zinc-950 pt-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden section-bg dark:bg-zinc-950 pt-16">
 
       {/* Mesh gradient base */}
       <div className="absolute inset-0 mesh-light dark:mesh-dark pointer-events-none" />

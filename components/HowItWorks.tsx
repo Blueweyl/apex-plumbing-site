@@ -39,7 +39,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 relative overflow-hidden bg-apple-surface dark:bg-zinc-900">
+    <section id="how-it-works" className="py-24 lg:py-32 relative overflow-hidden section-bg-alt dark:bg-zinc-900">
 
       {/* Mesh background */}
       <div className="absolute inset-0 pointer-events-none"

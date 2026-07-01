@@ -43,7 +43,7 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 lg:py-32 bg-apple-surface dark:bg-zinc-900 relative overflow-hidden">
+    <section id="testimonials" ref={sectionRef} className="py-24 lg:py-32 section-bg-alt dark:bg-zinc-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-apple-blue/4 dark:bg-apple-blue/6 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3 animate-float-slow" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-status-green/3 dark:bg-status-green/4 rounded-full blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3 animate-float-reverse" />
 

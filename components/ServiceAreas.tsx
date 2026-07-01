@@ -15,7 +15,7 @@ const areas = [
 
 export default function ServiceAreas() {
   return (
-    <section id="service-areas" className="py-24 lg:py-32 bg-white dark:bg-zinc-950 relative overflow-hidden" onMouseEnter={() => trackEvent('service_area_viewed')}>
+    <section id="service-areas" className="py-24 lg:py-32 section-bg dark:bg-zinc-950 relative overflow-hidden" onMouseEnter={() => trackEvent('service_area_viewed')}>
       <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-apple-blue/4 dark:bg-apple-blue/6 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3 animate-float-slow" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">

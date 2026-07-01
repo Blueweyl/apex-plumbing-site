@@ -96,7 +96,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-white dark:bg-zinc-950 relative overflow-hidden">
+    <section id="services" className="py-24 lg:py-32 section-bg dark:bg-zinc-950 relative overflow-hidden">
       {/* Subtle mesh */}
       <div className="absolute inset-0 mesh-subtle pointer-events-none opacity-60" />
       <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full blur-[120px] pointer-events-none"
