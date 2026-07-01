@@ -50,7 +50,7 @@ export default function Hero() {
           <div className="animate-fade-up">
 
             {/* Headline */}
-            <h1 className="text-6xl lg:text-7xl font-bold text-apple-dark dark:text-white tracking-tighter leading-[1.02] mb-6 text-balance">
+            <h1 className="text-6xl lg:text-7xl font-black text-apple-dark dark:text-white tracking-tighter leading-[1.02] mb-6 text-balance">
               Plumbing problems{' '}
               <span className="relative inline-block gradient-text-brand">
                 fixed today.
@@ -58,19 +58,19 @@ export default function Hero() {
               {' '}Not next week.
             </h1>
 
-            <p className="text-[22px] text-apple-dark dark:text-zinc-100 leading-relaxed max-w-lg font-semibold">
+            <p className="text-[22px] text-black dark:text-zinc-100 leading-relaxed max-w-lg font-bold">
               Licensed plumbers at your door in under 2 hours. Upfront pricing
               before we touch a single pipe. Guaranteed work — or we come back free.
             </p>
 
             {/* Emergency badge — below paragraph */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mt-5 mb-8 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 cursor-default"
-                 style={{ background: 'linear-gradient(135deg, rgba(255,59,48,0.08) 0%, rgba(255,107,53,0.06) 100%)', border: '1px solid rgba(255,59,48,0.2)' }}>
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mt-5 mb-8 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-default"
+                 style={{ background: '#FF3B30' }}>
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-red opacity-60" />
-                <span className="relative w-2.5 h-2.5 bg-status-red rounded-full" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-70" />
+                <span className="relative w-2.5 h-2.5 bg-white rounded-full" />
               </span>
-              <span className="text-[13px] font-semibold text-status-red uppercase tracking-wide">
+              <span className="text-[13px] font-bold text-white uppercase tracking-wide">
                 24/7 Emergency Service Available
               </span>
             </div>
