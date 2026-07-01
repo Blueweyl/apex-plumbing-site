@@ -13,6 +13,17 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden section-bg dark:bg-zinc-950 pt-16">
 
+      {/* Background photo — slightly transparent */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/worriedowner-plumber.jpeg"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.13 }}
+        />
+      </div>
+
       {/* Mesh gradient base */}
       <div className="absolute inset-0 mesh-light dark:mesh-dark pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white dark:via-zinc-950/60 dark:to-zinc-950 pointer-events-none" />
@@ -36,8 +47,22 @@ export default function Hero() {
           {/* Left */}
           <div className="animate-fade-up">
 
-            {/* Emergency badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-8 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 cursor-default"
+            {/* Headline */}
+            <h1 className="text-6xl lg:text-7xl font-bold text-apple-dark dark:text-white tracking-tighter leading-[1.02] mb-6 text-balance">
+              Plumbing problems{' '}
+              <span className="relative inline-block gradient-text-brand">
+                fixed today.
+              </span>
+              {' '}Not next week.
+            </h1>
+
+            <p className="text-[19px] text-apple-secondary dark:text-zinc-400 leading-relaxed max-w-lg">
+              Licensed plumbers at your door in under 2 hours. Upfront pricing
+              before we touch a single pipe. Guaranteed work — or we come back free.
+            </p>
+
+            {/* Emergency badge — below paragraph */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mt-5 mb-8 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 cursor-default"
                  style={{ background: 'linear-gradient(135deg, rgba(255,59,48,0.08) 0%, rgba(255,107,53,0.06) 100%)', border: '1px solid rgba(255,59,48,0.2)' }}>
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-red opacity-60" />
@@ -47,20 +72,6 @@ export default function Hero() {
                 24/7 Emergency Service Available
               </span>
             </div>
-
-            {/* Headline */}
-            <h1 className="text-5xl lg:text-6xl font-bold text-apple-dark dark:text-white tracking-tighter leading-[1.05] mb-6 text-balance">
-              Plumbing problems{' '}
-              <span className="relative inline-block gradient-text-brand">
-                fixed today.
-              </span>
-              {' '}Not next week.
-            </h1>
-
-            <p className="text-[19px] text-apple-secondary dark:text-zinc-400 leading-relaxed mb-10 max-w-lg">
-              Licensed plumbers at your door in under 2 hours. Upfront pricing
-              before we touch a single pipe. Guaranteed work — or we come back free.
-            </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
