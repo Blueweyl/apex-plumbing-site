@@ -90,6 +90,7 @@ const services = [
     iconGrad: 'from-slate-400/20 to-zinc-500/20 dark:from-slate-400/25 dark:to-zinc-500/25',
     hoverGrad: 'group-hover:from-slate-400/35 group-hover:to-zinc-500/35',
     glowColor: 'rgba(100,116,139,0.12)',
+    image: '/gas line.jpeg',
   },
 ]
 
