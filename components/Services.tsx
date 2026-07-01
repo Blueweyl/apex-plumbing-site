@@ -79,6 +79,7 @@ const services = [
     iconGrad: 'from-violet-400/20 to-purple-500/20 dark:from-violet-400/25 dark:to-purple-500/25',
     hoverGrad: 'group-hover:from-violet-400/35 group-hover:to-purple-500/35',
     glowColor: 'rgba(123,97,255,0.12)',
+    image: '/pipe repair & repiping.jpeg',
   },
   {
     emoji: '⛽',
