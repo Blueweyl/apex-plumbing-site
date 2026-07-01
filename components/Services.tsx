@@ -35,6 +35,7 @@ const services = [
     iconGrad: 'from-green-400/25 to-teal-400/25 dark:from-green-400/30 dark:to-teal-400/30',
     hoverGrad: 'group-hover:from-green-400/40 group-hover:to-teal-400/40',
     glowColor: 'rgba(52,199,89,0.12)',
+    image: '/drain cleaning.jpeg',
   },
   {
     emoji: '🚽',
