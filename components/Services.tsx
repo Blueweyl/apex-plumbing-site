@@ -108,6 +108,34 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Van photo banner */}
+        <div className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl" style={{ height: '420px' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/1.jpeg"
+            alt="GrowBridge Plumbing van and technician ready to serve"
+            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent" />
+          {/* Overlay badge */}
+          <div className="absolute bottom-6 left-6 flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-zinc-900/80 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75" />
+                <span className="relative w-2 h-2 bg-status-green rounded-full" />
+              </span>
+              <span className="text-[13px] font-semibold text-white">Licensed & Insured</span>
+            </div>
+            <div className="bg-zinc-900/80 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <span className="text-[13px] font-semibold text-white">24/7 Service</span>
+            </div>
+            <div className="bg-zinc-900/80 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <span className="text-[13px] font-semibold text-white">Serving Your Community</span>
+            </div>
+          </div>
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, i) => (
             <a
