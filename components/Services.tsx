@@ -136,8 +136,48 @@ export default function Services() {
           </div>
         </div>
 
+        {/* Emergency Plumbing — Featured full-width card */}
+        <a
+          href="#contact"
+          onClick={() => trackServiceClick('Emergency Plumbing')}
+          className="group relative flex items-end rounded-3xl overflow-hidden shadow-2xl mb-4 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+          style={{ height: '360px' }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/2.jpeg"
+            alt="Emergency plumber rushing to help"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
+          />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/40 to-zinc-950/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-transparent" />
+
+          {/* Content */}
+          <div className="relative p-8 w-full">
+            <div className="flex items-end justify-between gap-6">
+              <div>
+                <span className="inline-block px-3 py-1 mb-3 text-[11px] font-semibold rounded-full bg-red-950/80 text-status-red border border-status-red/30 backdrop-blur-sm">
+                  Most Requested
+                </span>
+                <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">🚨 Emergency Plumbing</h3>
+                <p className="text-[15px] text-zinc-300 leading-relaxed max-w-xl">
+                  Burst pipe at 3am? Flooding basement? We answer every call. A licensed tech is at your door in under 2 hours — any time, any day.
+                </p>
+              </div>
+              <div className="flex-shrink-0 flex items-center gap-2 bg-status-red/90 hover:bg-status-red backdrop-blur-sm text-white text-[14px] font-semibold px-6 py-3 rounded-xl transition-colors duration-200 whitespace-nowrap">
+                Call Now
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        {/* Remaining services grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {services.map((service, i) => (
+          {services.slice(1).map((service, i) => (
             <a
               key={service.title}
               href="#contact"
