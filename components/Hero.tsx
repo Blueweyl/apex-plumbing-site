@@ -56,7 +56,7 @@ export default function Hero() {
               {' '}Not next week.
             </h1>
 
-            <p className="text-[19px] text-apple-secondary dark:text-zinc-400 leading-relaxed max-w-lg">
+            <p className="text-[19px] text-apple-dark dark:text-zinc-100 leading-relaxed max-w-lg font-medium">
               Licensed plumbers at your door in under 2 hours. Upfront pricing
               before we touch a single pipe. Guaranteed work — or we come back free.
             </p>
