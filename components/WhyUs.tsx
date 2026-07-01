@@ -47,7 +47,7 @@ export default function WhyUs() {
       <div className="absolute inset-0 pointer-events-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/happy%20customer.jpeg"
+          src="/happy-customer.jpeg"
           alt=""
           className="w-full h-full object-cover object-center"
         />
