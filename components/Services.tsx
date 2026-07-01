@@ -179,57 +179,81 @@ export default function Services() {
         {/* Remaining services grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.slice(1).map((service, i) => (
-            <a
-              key={service.title}
-              href="#contact"
-              onClick={() => trackServiceClick(service.title)}
-              style={{ animationDelay: `${i * 60}ms`, ['--glow' as string]: service.glowColor }}
-              className="group relative flex flex-col p-6 bg-white dark:bg-zinc-900 border border-apple-border-subtle dark:border-zinc-800 rounded-2xl shadow-card
-                         hover:shadow-[0_16px_48px_var(--glow)] hover:-translate-y-2 hover:border-transparent
-                         transition-all duration-300 cursor-pointer overflow-hidden"
-            >
-              {/* Gradient hover overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"
-                   style={{ background: `linear-gradient(135deg, ${service.glowColor} 0%, transparent 60%)` }} />
-
-              {/* Left accent bar */}
-              <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center"
-                   style={{ background: `linear-gradient(to bottom, ${service.glowColor.replace('0.12', '0.8')}, ${service.glowColor.replace('0.12', '0.4')})` }} />
-
-              {service.tag && (
-                <span className={`absolute top-4 right-4 px-2.5 py-1 text-[11px] font-semibold rounded-full ${service.tagStyle}`}>
-                  {service.tag}
-                </span>
-              )}
-
-              {/* Icon or image */}
-              {'image' in service && service.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
+            'image' in service && service.image ? (
+              /* Photo background card */
+              <a
+                key={service.title}
+                href="#contact"
+                onClick={() => trackServiceClick(service.title)}
+                style={{ animationDelay: `${i * 60}ms` }}
+                className="group relative flex flex-col justify-end rounded-2xl overflow-hidden shadow-card hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={service.image as string}
                   alt={service.title}
-                  className="w-14 h-14 rounded-2xl object-cover mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/20 dark:border-zinc-700/50 shadow-md"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-              ) : (
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/50 to-zinc-950/10" />
+
+                {service.tag && (
+                  <span className={`absolute top-4 right-4 px-2.5 py-1 text-[11px] font-semibold rounded-full backdrop-blur-sm ${service.tagStyle}`}>
+                    {service.tag}
+                  </span>
+                )}
+
+                <div className="relative p-5">
+                  <h3 className="text-[17px] font-semibold text-white mb-1.5">{service.emoji} {service.title}</h3>
+                  <p className="text-[13px] text-zinc-300 leading-relaxed mb-4">{service.description}</p>
+                  <div className="flex items-center gap-1.5 text-amber-400 text-[13px] font-semibold">
+                    Schedule service
+                    <svg className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ) : (
+              /* Standard card */
+              <a
+                key={service.title}
+                href="#contact"
+                onClick={() => trackServiceClick(service.title)}
+                style={{ animationDelay: `${i * 60}ms`, ['--glow' as string]: service.glowColor }}
+                className="group relative flex flex-col p-6 bg-white dark:bg-zinc-900 border border-apple-border-subtle dark:border-zinc-800 rounded-2xl shadow-card
+                           hover:shadow-[0_16px_48px_var(--glow)] hover:-translate-y-2 hover:border-transparent
+                           transition-all duration-300 cursor-pointer overflow-hidden"
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"
+                     style={{ background: `linear-gradient(135deg, ${service.glowColor} 0%, transparent 60%)` }} />
+                <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center"
+                     style={{ background: `linear-gradient(to bottom, ${service.glowColor.replace('0.12', '0.8')}, ${service.glowColor.replace('0.12', '0.4')})` }} />
+
+                {service.tag && (
+                  <span className={`absolute top-4 right-4 px-2.5 py-1 text-[11px] font-semibold rounded-full ${service.tagStyle}`}>
+                    {service.tag}
+                  </span>
+                )}
+
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.iconGrad} ${service.hoverGrad} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/50 dark:border-zinc-700/50`}>
                   <span className="text-3xl leading-none">{service.emoji}</span>
                 </div>
-              )}
 
-              <h3 className="text-[17px] font-semibold text-apple-dark dark:text-white mb-2 group-hover:text-apple-blue transition-colors duration-200">
-                {service.title}
-              </h3>
-              <p className="text-[14px] text-apple-secondary dark:text-zinc-400 leading-relaxed flex-1">
-                {service.description}
-              </p>
+                <h3 className="text-[17px] font-semibold text-apple-dark dark:text-white mb-2 group-hover:text-apple-blue transition-colors duration-200">
+                  {service.title}
+                </h3>
+                <p className="text-[14px] text-apple-secondary dark:text-zinc-400 leading-relaxed flex-1">
+                  {service.description}
+                </p>
 
-              <div className="flex items-center gap-1.5 mt-5 text-apple-blue text-[13px] font-semibold">
-                Schedule service
-                <svg className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </a>
+                <div className="flex items-center gap-1.5 mt-5 text-apple-blue text-[13px] font-semibold">
+                  Schedule service
+                  <svg className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            )
           ))}
         </div>
 
