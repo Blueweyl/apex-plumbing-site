@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import { createAdminClient } from '@/lib/supabase-admin'
 
 const ContactSchema = z.object({
   name: z.string().min(2).max(100).trim(),
@@ -58,18 +59,22 @@ export async function POST(req: NextRequest) {
 
   const { name, phone, email, service, urgency, message } = result.data
 
-  // TODO: send email/SMS notification to dispatcher
-  // e.g. via Twilio, SendGrid, Resend, etc.
-  console.log('[Contact form]', {
-    name,
-    phone: phone.replace(/\d(?=\d{4})/g, '*'), // mask all but last 4 digits in logs
-    service,
-    urgency,
-    hasEmail: !!email,
-    hasMessage: !!message,
-    timestamp: new Date().toISOString(),
-    ip,
-  })
+  try {
+    const supabase = createAdminClient()
+    await supabase.from('leads').insert({
+      name,
+      phone,
+      email: email || null,
+      service,
+      urgency,
+      message: message || null,
+      ip,
+      status: 'new',
+    })
+  } catch (err) {
+    // Log but don't fail the request — customer still gets confirmation
+    console.error('[Contact form] DB save failed:', err)
+  }
 
   return NextResponse.json({ success: true }, { status: 200 })
 }
